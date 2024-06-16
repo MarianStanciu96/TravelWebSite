@@ -1,0 +1,94 @@
+@import "./variables";
+@import "./mixins";
+
+.container {
+  $color1: rgb(222, 251, 3);
+  color: $color1;
+
+  h1 {
+    $color1: rgb(195, 4, 4);
+    color: $color1;
+    font-weight: $font-light;
+    #{$propertyNameBGColor}: $color2;
+
+    &:hover {
+      color: rgb(1, 131, 244);
+    }
+  }
+
+  p {
+    color: $color1;
+    #{$propertyNameBGColor}: blue;
+
+    &:hover {
+      color: azure;
+      background-color: rgb(1, 131, 244);
+    }
+  }
+}
+
+.error {
+  background-color: $color2;
+  color: azure;
+
+  //   .error-text {
+  //     background-color: $color1;
+  //     color: rgb(54, 50, 153);
+  //   }
+  &-text {
+    background-color: $color1;
+    color: rgb(255, 255, 255);
+
+    &-red {
+      background-color: yellow;
+      color: rgb(29, 62, 182);
+    }
+  }
+
+  //   .error-text-red {
+  //     background-color: yellow;
+  //     color: rgb(29, 62, 182);
+  //   }
+
+  //   &-text-red {
+  //     background-color: yellow;
+  //     color: rgb(29, 62, 182);
+  //   }
+}
+
+.btn1 {
+  @include btn-style(70px, 100px);
+  &:hover {
+    @include btn-style-hover();
+  }
+}
+
+.btn2 {
+  @include btn-style(50px, 200px, rgba(44, 253, 7, 0.649));
+  &:hover {
+    @include btn-style-hover(#fff, rgba(32, 253, 7, 0.649));
+  }
+  //   @media screen and (max-width: 1200px) {
+  //     color: rgb(255, 255, 255);
+  //     background-color: rgb(252, 1, 198);
+  //   }
+  @media (800px < width < 1200px) {
+    color: rgb(0, 0, 0);
+    background-color: rgb(248, 252, 1);
+  }
+  @media (width < 800px) {
+    color: rgb(10, 34, 187);
+    background-color: rgb(255, 65, 1);
+  }
+}
+
+.btn3 {
+  @include btn-style();
+  &:hover {
+    @include btn-style-hover();
+  }
+}
+
+.btn4 {
+  @extend .btn2;
+}
